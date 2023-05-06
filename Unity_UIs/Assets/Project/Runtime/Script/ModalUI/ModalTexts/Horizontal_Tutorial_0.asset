@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9208f0cf38e765c4fa74ec924d1ac318, type: 3}
+  m_Name: Horizontal_Tutorial_0
+  m_EditorClassIdentifier: 
+  title: Horizontal Tutorial 1
+  sprite: {fileID: 21300000, guid: dae33700bd23f76409a80bf78fdb8a42, type: 3}
+  message: this is tutorial of Horizontal modal window
+  triggerOnEnable: 1
+  isVertical: 0
+  isHorizontal: 1
