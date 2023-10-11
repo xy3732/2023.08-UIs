@@ -13,6 +13,8 @@ public class CustomButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHa
 {
 
     [Header("settings")]
+    public float onEnableDelay = 0f;
+    public Vector3 TweenSize = new Vector3(1, 1, 1);
     public bool Togle = false;
 
     [Header("Colors")]
@@ -37,6 +39,14 @@ public class CustomButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHa
         background = GetComponent<Image>();
         background.color = normalColor;
     }
+
+    private void OnEnable()
+    {
+        // 트위닝 사이즈
+        transform.localScale = new Vector3(0,0,0);
+        LeanTween.scale(gameObject, Vector3.one, 0.075f).setDelay(onEnableDelay);
+    }
+
     private void ErrorChecker()
     {
         if (
@@ -90,16 +100,20 @@ public class CustomButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHa
     // - IPointerDownHandler -> 해당 버튼 클릭중일때 실행
     public void OnPointerDown(PointerEventData eventData)
     {
+        LeanTween.scale(gameObject,Vector3.one, 0);
         // 토글 버튼이 아닐시 실행
         if (!Togle) background.color = pressedColor;
+        
     }
 
     // - IPointerEnterHandler -> 해당 버튼 안으로 들어오면 실행
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(!isClicked) background.color = highlightColor;
-        // 마우스 누르고 밬으로 나가면 버튼 실해이 안되게 설정
+        // 마우스 누르고 밬으로 나가면 버튼 실행이 안되게 설정
         isIn = true;
+
+        LeanTween.scale(gameObject, TweenSize, 0.1f);
     }
 
     // -  IPointerExitHandler -> 해당 버튼 밬으로 나가면 실행
@@ -108,5 +122,7 @@ public class CustomButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHa
         // 트글 버튼이 아니거나 클릭한 버튼이 아니면 노말값 색상으로 변경
         if(!isClicked || !Togle) background.color = normalColor;
         isIn = false;
+
+        LeanTween.scale(gameObject, new Vector3(1f, 1f, 1f), 0.1f);
     }
 }

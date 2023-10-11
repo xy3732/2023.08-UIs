@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Vertical_Tutorial_1
   m_EditorClassIdentifier: 
   title: Vertical Tutorial 2
-  sprite: {fileID: 21300000, guid: 7fd3cda14282bb7429b8eeb6c121e5bb, type: 3}
-  message: this is second Vertical modal window text
+  sprite: {fileID: 21300000, guid: 397b1f4222d0a9746b50b9f14eb8c3fb, type: 3}
+  message: "2\uBC88\uC9F8 \uBAA8\uB2EC \uD14C\uC2A4\uD2B8 "
   triggerOnEnable: 1
   isVertical: 1
   isHorizontal: 0

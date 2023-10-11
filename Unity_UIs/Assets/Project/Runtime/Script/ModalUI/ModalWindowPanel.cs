@@ -28,13 +28,13 @@ public class ModalWindowPanel : MonoBehaviour
     [Header("Footer")]
     [SerializeField] private Transform footerArea;
     [Space()]
-    [SerializeField] private Button confirmButton;
+    [SerializeField] private CustomButton confirmButton;
     [SerializeField] private TextMeshProUGUI confirmText;
 
-    [SerializeField] private Button declineButton;
+    [SerializeField] private CustomButton declineButton;
     [SerializeField] private TextMeshProUGUI declineText;
 
-    [SerializeField] private Button alternateButton;
+    [SerializeField] private CustomButton alternateButton;
     [SerializeField] private TextMeshProUGUI alternateText;
 
 
@@ -46,17 +46,26 @@ public class ModalWindowPanel : MonoBehaviour
 
     private void Awake()
     {
+        tweening();
         thisGameObject = this.gameObject;
         Close();
     }
 
+    public void tweening()
+    {
+        transform.localScale = new Vector3(0, 0, 0);
+        LeanTween.scale(gameObject, Vector3.one, 0.075f);
+    }
+
     public void Confirm()
     {
+        tweening();
         onConfirmAction?.Invoke();
     }
 
     public void Decline()
     {
+        tweening();
         onDeclineAction?.Invoke();
     }
 
@@ -108,7 +117,10 @@ public class ModalWindowPanel : MonoBehaviour
         headerArea.gameObject.SetActive(hasTitle);
         titleField.text = _title;
 
+        bool hasImage = (imageToShow != null);
+        vericalImage.gameObject.SetActive(hasImage);
         vericalImage.sprite = imageToShow;
+
         verticalContentText.text = message;
 
         bool hasConfirm = (_confirmAction != null);

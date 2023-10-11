@@ -9,6 +9,7 @@ public class ModalTextObject : ScriptableObject
 {
     public string title;
     public Sprite sprite;
+    [TextArea(2,10)]
     public string message;
     public bool triggerOnEnable;
     [Space(10)]

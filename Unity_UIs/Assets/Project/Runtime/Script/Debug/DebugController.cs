@@ -138,7 +138,7 @@ public class DebugController : MonoBehaviour
                     }
                     catch (System.IndexOutOfRangeException ex)
                     {
-                       
+                        Debug.Log("this is errror T1");
                     }
                 }
                 else if(commandList[i] as DebugCommand<int,Vector3> != null)
@@ -146,7 +146,6 @@ public class DebugController : MonoBehaviour
 
                     try
                     {
-                        Debug.Log(properties[2]);
                         (commandList[i] as DebugCommand<int,Vector3>).Invoke(int.Parse(properties[1]), string2Vector3(properties[2]));
                     }
                     catch (System.IndexOutOfRangeException ex)
